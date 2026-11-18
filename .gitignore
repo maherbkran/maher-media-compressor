@@ -1,10 +1,11 @@
-/.venv/
-/tools/
-/dist/
-/build/
+/_runtime/
+/MediaPress-launch.log
+/source/.venv/
+/source/tools/
+/source/dist/
+/source/build/
 __pycache__/
 *.pyc
 *.zip
 *.7z
-*.part*
 .env*

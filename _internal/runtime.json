@@ -1,0 +1,54 @@
+{
+  "Version": "2.1.0",
+  "ArchiveRoot": "MediaPress-v2.1.0",
+  "ArchiveSha256": "34f00c8ef6406235d6c31519bf6597de11b150d676044dcfe7cc767ab18b552e",
+  "UncompressedBytes": 870891919,
+  "Parts": [
+    {
+      "Name": "MediaPress.runtime.001",
+      "Size": 94371840,
+      "Sha256": "098edf6b86c53f4fc81c587dc37c90b9f32fac47d0c392eebf996c78f61def39"
+    },
+    {
+      "Name": "MediaPress.runtime.002",
+      "Size": 94371840,
+      "Sha256": "c0dae009f20f0461c875f030c02283d5d8db28ab39126c61485eab44e95228fb"
+    },
+    {
+      "Name": "MediaPress.runtime.003",
+      "Size": 94371840,
+      "Sha256": "a794ab2e97c141725eb075ecb1f8676f07fc75a6831d71a6f6a042eb1cc1d70e"
+    },
+    {
+      "Name": "MediaPress.runtime.004",
+      "Size": 55156209,
+      "Sha256": "09a06beccaebbddad0f80d854d52ea1d8de610193d8dea5bb4d433136f63a0e5"
+    }
+  ],
+  "CriticalFiles": [
+    {
+      "Path": "MediaPress-v2.1.0/_internal/PySide6/Qt6Core.dll",
+      "Size": 10472760
+    },
+    {
+      "Path": "MediaPress-v2.1.0/_internal/PySide6/Qt6WebEngineCore.dll",
+      "Size": 203489592
+    },
+    {
+      "Path": "MediaPress-v2.1.0/_internal/python314.dll",
+      "Size": 6753112
+    },
+    {
+      "Path": "MediaPress-v2.1.0/_internal/tools/ffmpeg.exe",
+      "Size": 105423872
+    },
+    {
+      "Path": "MediaPress-v2.1.0/_internal/tools/ffprobe.exe",
+      "Size": 105221120
+    },
+    {
+      "Path": "MediaPress-v2.1.0/MediaPress.exe",
+      "Size": 3127256
+    }
+  ]
+}

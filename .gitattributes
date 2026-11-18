@@ -1,1 +1,5 @@
-assets/ui/approved.css text eol=lf
+source/assets/ui/approved.css text eol=lf
+_internal/runtime.json text eol=lf
+_internal/MediaPress.runtime.* binary
+MediaPress.exe binary
+Quick-Start.png binary
