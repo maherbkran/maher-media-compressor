@@ -1,0 +1,10 @@
+/.venv/
+/tools/
+/dist/
+/build/
+__pycache__/
+*.pyc
+*.zip
+*.7z
+*.part*
+.env*
