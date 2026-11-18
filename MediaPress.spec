@@ -13,8 +13,7 @@ binaries = [(str(base / 'tools' / name), 'tools') for name in
 datas = [(str(base / 'app.ico'), '.'), (str(base / 'licenses'), 'licenses'), (str(base / 'assets'), 'assets')]
 a = Analysis([str(base / 'launcher.py')], pathex=[str(base)], binaries=binaries,
              datas=datas, hiddenimports=[], hookspath=[], hooksconfig={}, runtime_hooks=[],
-             excludes=['PySide6.QtWebEngineCore', 'PySide6.QtWebEngineWidgets',
-                       'PySide6.QtQml', 'PySide6.QtQuick', 'numpy', 'tkinter', 'matplotlib'],
+             excludes=['numpy', 'tkinter', 'matplotlib'],
              noarchive=False, optimize=1)
 pyz = PYZ(a.pure)
 exe = EXE(pyz, a.scripts, [], exclude_binaries=True, name='MediaPress', debug=False,

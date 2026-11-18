@@ -1,0 +1,15 @@
+Qt WebEngine 6.12.0 / Chromium 140 — PySide6-WebEngine 6.12.0.140.
+Qt glue code is distributed under the LGPL-3.0 option; Chromium and its bundled components retain their respective BSD, MIT, Apache, LGPL and other upstream licenses.
+Qt source and licensing references:
+https://code.qt.io/cgit/qt/qtwebengine.git/
+https://doc.qt.io/qt-6/qtwebengine-licensing.html
+https://doc.qt.io/qt-6/qtwebengine3rdparty.html
+https://chromium.googlesource.com/chromium/src/+/refs/heads/main/LICENSE
+The dynamically linked Qt libraries and helper remain separately replaceable under the same terms described in THIRD_PARTY_NOTICES.txt.
+The browser engine renders only this local application; native FFmpeg/Pillow workers own export and native Qt Multimedia owns video playback.
+
+Approved design assets are imported from the owner-supplied MediaPress.html.
+IBM Plex Sans Arabic font: SIL Open Font License 1.1, original notices retained in Approved-Design-Assets.txt and assets/ui/APPROVED-ASSETS-LICENSES.txt.
+Phosphor icons: MIT, original notice retained there and in assets/icons/LICENSE.
+Demo media: Xavier Mallet / Pexels, attribution and original reference link retained in the Help dialog.
+The owner-provided portrait logo is retained as supplied. The original personal photograph is not distributed.

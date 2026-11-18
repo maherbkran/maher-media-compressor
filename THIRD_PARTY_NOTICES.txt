@@ -61,3 +61,8 @@ Qt Multimedia and Qt Multimedia Widgets 6.12.0 — LGPL-3.0 option.
 Distributed through PySide6-Addons 6.12.0 under the same Qt terms above.
 Qt Multimedia uses separately distributed FFmpeg libraries in the PySide6 wheel.
 See licenses/Qt-FFmpeg-NOTICE.txt and the upstream Qt source/license references.
+
+MediaPress 2.1.0 additionally bundles Qt WebEngine 6.12.0 (Chromium 140) through PySide6-WebEngine 6.12.0.140.
+See licenses/QtWebEngine-NOTICE.txt, LGPL-3.0.txt and the linked upstream source trees.
+The approved HTML design bundles IBM Plex Sans Arabic (OFL-1.1), Phosphor (MIT) and attributed Pexels demo media.
+Full font and icon notices from the supplied design are retained in licenses/Approved-Design-Assets.txt.

@@ -1,5 +1,5 @@
 APP_NAME = "MediaPress"
-VERSION = "2.0.0"
+VERSION = "2.1.0"
 DEVELOPER = "ماهر بكران"
 WHATSAPP_NUMBER = "+971543386217"
 WHATSAPP_URL = "https://wa.me/971543386217"

@@ -59,7 +59,7 @@ https://github.com/libjpeg-turbo/libjpeg-turbo
 https://doc.qt.io/qtforpython-6/
 
 
-MediaPress 2.0.0: defaults are unlimited output size (0); export always writes JPEG/MP4.
+MediaPress 2.1.0: defaults are unlimited output size (0); export always writes JPEG/MP4.
 branding.py owns app attribution and the user-authorized WhatsApp contact.
 pillow-heif 1.8.1 supplies HEIC/HEIF support; FFmpeg decodes additional still formats.
 Input video size and probe/encode time are not artificially capped. Resource limits still apply.
@@ -73,3 +73,19 @@ Legacy lossless engine functions remain for compatibility; the application UI al
 
 - dialogs.py: themed add-choice, help, settings and error/confirmation surfaces.
 - games.py: modeless Snake and ten-level memory; progress observes main task only.
+
+2.1 architecture:
+- launcher.py -> desktop_window.py is the supported application entry point.
+- assets/ui/approved.css, approved-body.html and approved-games.js are extracted from the approved design.
+- desktop.js / native.css adapt native settings, saving, reporting, cancellation and playback controls.
+- desktop_controller.py reuses native BatchWorker, ImportWorker and ExportSettings.
+- native_movie.py uses Qt Multimedia; browser codec availability does not limit native playback.
+- local_media.py provides token-scoped loopback GET/range streams; no upload or arbitrary-path endpoint.
+- Qt WebEngine profile is ephemeral and blocks non-local network requests. Native file-only FFmpeg protocols remain enforced.
+- DesktopView intercepts native local-file drops from the renderer child.
+- No sandbox-disabling Chromium flag is used. Headless QA disables GPU only for its virtual display.
+- Existing medialite.py widgets remain as compatibility/test scaffolding; launcher.py runs the approved desktop shell.
+- requirements includes matching PySide6-WebEngine 6.12.0.140. Keep the entire _internal directory.
+- The approved HTML input is not needed to build from this repository; imported assets are checked in.
+- To re-import another explicitly approved reference: python import_design.py INPUT.html assets/ui
+- Tests additionally include test_desktop and test_local_media, using actual exports/playback and sparse >2 GiB range reads.

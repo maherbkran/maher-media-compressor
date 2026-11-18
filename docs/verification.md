@@ -1,46 +1,45 @@
-# MediaPress 2.0.0 · interface and verification
+# MediaPress 2.1 · approved desktop design verification
 
-## Result and scope
+## Delivered scope
 
-The rejected tall, scrolling interface is replaced by a compact native Windows media workspace: preview on the left, queue and two concise settings tabs on the right, persistent commands below. Only the queue scrolls. Dimensions open in a compact popup. The product is offline and does not require an account.
+The owner-supplied MediaPress.html is the design source. Its base CSS is retained with LF line endings and a recorded SHA-256 in assets/ui/reference.json. The layout, typography, portrait, Phosphor icons, palette, glass slider lenses, image comparison and game artwork come from that reference. Native additions are isolated in native.css and use the same tokens and component shapes.
 
-Covered surfaces: empty/add-choice, folder discovery, mixed file queue, image/video settings, advanced settings, original/result preview, playback/seek, importing, encoding, cancellation, errors/partial success, completion, open folder, CSV report, help/details, contact, themes, reduced effects, game chooser, Snake and memory.
+The application entry point is launcher.py -> desktop_window.py. The earlier widgets UI is compatibility/test scaffolding and is not the shipped user journey.
 
-The brand is MediaPress with the clickable English byline By Maher Bakran. Remove and clear actions have labels and sit on the left of the queue toolbar. The empty preview is keyboard/click accessible and opens a files-or-folder choice.
+Covered surfaces: add files/folder, native drag/drop, mixed queue, image/video controls, transactional advanced settings, output location, original/result/split image comparison, expanded preview, native video playback/seek/mute, importing, progress/cancel, completed/partial/error states, CSV, profile/contact/help, light/dark, reduced effects, and the approved Snake/memory overlays.
 
-## Interaction and material
+## Preserved product behavior
 
-All buttons have a visible thin border, stable hit geometry, focus and pressed feedback. Hover uses a 130 ms transition and a repeating 1.6 s glass highlight while hovered. Primary-button highlights stay at the rim to preserve white-text contrast. Animations stop when hidden/disabled and in reduced-effects mode.
+- Native FFmpeg/Pillow export remains unchanged: all videos MP4/H.264/AAC, all images JPEG, white matte/first frame for image sequences, protected originals and collision-safe names.
+- The default destination follows each original. A native folder picker can select a shared destination. Report and open-result controls use actual saved paths.
+- There is no artificial video input-size cap or probe/encode time limit. Zero disables the optional output ceiling.
+- The UI never reads a large video into a JavaScript ArrayBuffer or WebAssembly heap. It submits file identities/settings to the native worker.
+- Image preview sizes are measured native temporary exports, not estimates. Original/result images are bounded preview renders; the saved file retains the requested export dimensions. Larger outputs are explicitly labeled as an increase.
+- Qt Multimedia plays native local files, independently of the browser engine's codec support. Its display tracks the approved video stage and hides/pauses under overlays. Closing games does not cancel compression.
+- Advanced settings/presets are drafts until Apply. Cancel discards them. Changing a saved item's settings makes the queue label that change rather than implying the old output uses the new options.
 
-Regular glass is confined to the functional header and command dock. It samples the actual cached application backdrop, blurs that sample and slightly refracts the rim. Data, preview and forms remain opaque. No nested blur or full-screen continuous effects. Cache rebuilds follow backdrop/size changes, not hover frames.
+## Runtime boundary
 
-Windows transparency, client-area animation and high-contrast settings select the conservative mode at startup. The in-app switch can reduce effects throughout the main window and popups. This does not claim a complete Windows high-contrast color-scheme implementation.
+The embedded view uses an ephemeral Qt WebEngine profile. Static assets and token-registered previews are served only on 127.0.0.1 with no upload or arbitrary-path endpoint. Byte-range reads are streamed in bounded chunks, including offsets beyond 2 GiB. Content policy and request interception prevent external network requests or navigation to another page. Credits/contact open in the user's browser only after a user action. File selection and output paths are native decisions; the web interface cannot supply arbitrary filesystem paths.
 
-Explicit application palettes and themed popups prevent inherited dark native colors from colliding with light text styles. Numeric editors retain RTL control layout with LTR values; their widths are tested after theme changes. Dialog details and disabled controls use the same palette. Light and dark screenshots are provided.
+Native file-only FFmpeg protocols and the Chromium sandbox remain enabled. No sandbox-disabling flag is used. Headless QA disables GPU for its virtual display only. The raw personal photograph is not distributed.
 
-## Games and compression
+## Verification evidence
 
-Starting compression opens a modeless game chooser. The progress bar observes actual batch progress; games do not control the worker. Closing, Escape, switching games and returning to the main app preserve the current game during the session. Snake pauses on deactivation/close; memory pauses unmatched-card timing while hidden. A visible Games button reopens the popup. A finished batch can be reviewed while play continues.
+The suite covers actual encoders, original hashes, HEIC/AVIF/CMYK/GIF/16-bit images, video rotation/HDR/audio/formats, output caps, mixed folders, cancellation, and sparse >2 GiB containers. New desktop tests exercise real exports, native playback/seek, renderer-child local drops, both themes, imported stylesheet/font integrity, advanced cancellation/apply, large virtual queues, and all ten approved memory levels. Local-media tests cover private routes, ranges and >2 GiB offsets.
 
-Memory has 10 levels with 3, 4, 5, 6, 8, 10, 12, 15, 18 and 20 pairs. Next level unlocks only after all pairs match. Snake advances through 10 speed levels, three food items per level, with collision/restart and keyboard/directional controls. State is retained during the application session, not across application restarts.
+The packaged-app self-test loads the approved view/font, processes a mixed five-file queue beside its originals, reopens a retained memory game, decodes native video frames and checks both theme colors. It is run against the bundled executable and tools.
 
-## Verification
+Visual checks use 1366×768, 1100×720 and 960×650 content areas. The file list scrolls internally. Small-height adaptations retain the same layout/concept; only spacing and queue height are reduced. Settings/output/help/game overlays use the same themes. The original design's reduced-motion, reduced-effects, transparency and forced-color fallbacks remain in the retained stylesheet.
 
-- Automated engine, integration, interface and game checks: 48 tests in the final source suite; actual FFmpeg/Pillow conversions, not mock export results.
-- A mixed corrupt-video/valid-image batch continues after the bad file, protects the original and exposes the successful result. Opening/closing games does not cancel that worker.
-- Image/video control independence, optional output ceilings, routing beside each source, collisions, cancellation and source hashes are covered.
-- Large-file boundary checks: valid sparse-padded MOV/MP4 above 2 GiB, a 12-minute clip and an image above the previous 256 MB boundary. This is not a performance benchmark of 2 GiB of actual camera footage.
-- Main actions fit 1366×768, 1100×720 and 960×640 without a page scrollbar. Keyboard Tab/Delete, English/Arabic names, light/dark palettes, advanced-dialog cancellation and cached-glass/reduced-effects states are covered.
-- Both games, all memory levels, collisions, next-level locking, retained state and real batch progress are checked.
-- Packaged-app self-test uses actual bundled image/video encoders, decodes a real frame through Qt Multimedia, switches both themes and reopens a retained memory game.
-- Visual evidence consists of Qt-rendered application captures. No claim of an independent user study or exhaustive hardware/display review.
+Snapshots are Qt-rendered captures, and geometry/contrast-state checks come from the actual embedded document. They are not an independent user study or a general GPU/display benchmark. No universal frame-rate, cross-browser, mobile, or Windows 10 verification is claimed. Source smoke and packaged smoke reports are kept with release QA evidence; README screenshots show the delivered interface.
 
-Performance data is in performance.json: local offscreen render timing, not measured display FPS. The material is cached; a hover repaints its bounded control. Whole-window screenshot timing includes capture/copy overhead and varies with machine load. No universal 60 FPS claim is made.
+## Design review boundaries
 
-## Applicable design checks
-
-Native Windows scope: readable hierarchy, explicit actions, truthful progress, protected originals, recoverable errors, RTL/English mixing, keyboard focus, reduced effects, theme contrast and no unnecessary page scrolling. These checks apply to this personal utility in the UAE context without government or official-service styling. CSS browser support, web route/authentication/SEO, mobile safe areas and touch-device certification are not applicable and are not claimed.
+This is a personal Windows utility. Applicable checks include Arabic RTL/English mixing, readable text, keyboard/focus, clear actions, truthful progress, recovery, protected originals, bounded scrolling, reduced effects and local processing. UAE government identity, web authentication/SEO and mobile-device certification are not applicable. The owner's approved reference takes precedence over generic visual preferences. Its optical glass treatment is retained as designed rather than claimed as an Apple platform material.
 
 ## Limits
 
-Windows x64 is the distribution target; this build was verified on the current Windows 11 machine. Windows 10 and other hardware have not been independently exercised. Playback support depends on the bundled Qt decoder and may differ from export support; external opening remains available. JPEG/MP4 export is lossy and quality/size depends on content and duration. Compression has no artificial input video-size or encoding-time cap; disk space, memory and processing time remain practical constraints. No unresolved functional blocker was found in the covered flows.
+Export is lossy; size/quality depends on content and duration. Preview may be scaled and decoder coverage differs by format. Files that are encrypted, corrupted or unsupported by the supplied decoders may fail individually without blocking the rest of the queue. Disk space, memory and processing time remain physical constraints. Sparse >2 GiB fixtures validate boundaries and streaming, not the speed of encoding 2 GiB of camera footage. Game state is retained within the current session, not after application restart.
+
+Final source suite: **58 tests passed**. The bundled Windows executable passed its desktop/encoder smoke test, including five native exports, both themes and native video frames.

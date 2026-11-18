@@ -1,18 +1,13 @@
-# MediaPress · By Maher Bakran
+# MediaPress · approved identity
 
-The approved mark is a recognizable, vector-like personal portrait derived from the owner's supplied photograph. The original photograph is excluded from the project, repository and downloadable app.
+MediaPress 2.1 adopts the owner-supplied MediaPress.html design. The approved layout, IBM Plex Sans Arabic font, portrait logo, Phosphor icons, colors, glass slider lenses, split image comparison and game artwork are retained.
 
-- Mark: transparent PNG, 1280 × 1280. Windows ICO is a format conversion of the same mark.
-- Ink `#163849`, emerald `#107E73`, pearl `#F3F7F7`.
-- Dark surfaces `#14262B` / `#192C31`; light text `#E4F0EC`, mint emphasis `#82E0BF`.
-- Segoe UI system font. No font files are redistributed.
-- UI icons: official Phosphor Core 2.1.1 regular SVG paths, MIT license included.
-- The English byline links to the owner-authorized WhatsApp contact: +971543386217.
+The base stylesheet is extracted without style changes, with LF line endings. Its fingerprint and the original input fingerprint are in assets/ui/reference.json. Native desktop additions are isolated in native.css.
 
-Production: built-in ImageGen with the owner's photograph as the sole identity reference; transparent background. No API/CLI workflow was used. The final mark is the PNG asset, not an SVG vector file.
+Light: ink #142F34, emerald #006C60, page #EFF4F2, panel #FBFDFC. Dark: ink #EDF5F2, emerald #70E6BF, page #111D1C, panel #1A2A28.
 
-Final production prompt / reusable art direction:
+The portrait is retained from the approved reference; Windows ICO is a format conversion of its approved favicon. The original personal photograph is not distributed. The earlier generated mark and its production record remain in assets/maher-mark.png and docs/logo-production.md.
 
-> Logo-brand, identity-preserving stylization. Create one final professional personal portrait logo of Maher Bkran using the supplied owner photograph. Keep his recognizable swept-up thick dark hair silhouette, strong eyebrows, almond eyes, straight nose, full beard and moustache, and square/oval jaw. Use crisp, economical vector-like shapes, a compact front-facing head and minimal shirt collar/tie. Two to three flat colors: ink navy #163849, emerald #107E73 and light silver-white. It must read at 48 px as an app icon. No photographic skin texture, individual hairs, photorealism, text, initials, watermark, mockup, gradient or glow. Square composition on a transparent background.
+Contact remains the owner-authorized WhatsApp number +971543386217. By Maher Bakran opens the approved profile dialog; the contact buttons open WhatsApp.
 
-The mark and identity are supplied for this owner-branded application. Third-party libraries and icons retain their own licenses.
+Font and icon notices from the reference are preserved in assets/ui/APPROVED-ASSETS-LICENSES.txt and licenses/Approved-Design-Assets.txt. The Pexels/Xavier Mallet demo attribution stays in Help.

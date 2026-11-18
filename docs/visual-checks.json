@@ -1,0 +1,92 @@
+{
+  "viewports": [
+    {
+      "viewport": [
+        1366,
+        768
+      ],
+      "body": 768,
+      "page": 768,
+      "start": {
+        "x": 961.609375,
+        "y": 501.625,
+        "width": 330.390625,
+        "height": 42,
+        "top": 501.625,
+        "right": 1292,
+        "bottom": 543.625,
+        "left": 961.609375
+      },
+      "queue": {
+        "x": 40,
+        "y": 572.625,
+        "width": 1271,
+        "height": 169,
+        "top": 572.625,
+        "right": 1311,
+        "bottom": 741.625,
+        "left": 40
+      }
+    },
+    {
+      "viewport": [
+        1100,
+        720
+      ],
+      "body": 720,
+      "page": 720,
+      "start": {
+        "x": 737.34375,
+        "y": 412.4375,
+        "width": 309.65625,
+        "height": 38,
+        "top": 412.4375,
+        "right": 1047,
+        "bottom": 450.4375,
+        "left": 737.34375
+      },
+      "queue": {
+        "x": 21,
+        "y": 475.4375,
+        "width": 1043,
+        "height": 150,
+        "top": 475.4375,
+        "right": 1064,
+        "bottom": 625.4375,
+        "left": 21
+      }
+    },
+    {
+      "viewport": [
+        960,
+        650
+      ],
+      "body": 650,
+      "page": 650,
+      "start": {
+        "x": 644,
+        "y": 412.4375,
+        "width": 263,
+        "height": 38,
+        "top": 412.4375,
+        "right": 907,
+        "bottom": 450.4375,
+        "left": 644
+      },
+      "queue": {
+        "x": 21,
+        "y": 475.4375,
+        "width": 903,
+        "height": 150,
+        "top": 475.4375,
+        "right": 924,
+        "bottom": 625.4375,
+        "left": 21
+      }
+    }
+  ],
+  "script_errors": [],
+  "native_frames": 6,
+  "approved_css_sha256": "ea1ba34d559cdba5db1239cb9b09448f69974836d752f5826b33cb0121e63b56",
+  "blocked_external_requests": []
+}

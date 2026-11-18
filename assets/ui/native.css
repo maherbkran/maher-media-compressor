@@ -1,0 +1,23 @@
+/* Desktop-only additions use the approved tokens and component shapes. */
+.file-list{max-height:158px;overflow:auto;scrollbar-width:thin;overscroll-behavior:contain}
+.native-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-block:16px}
+.native-fields label{display:flex;flex-direction:column;gap:7px;font-size:13px;color:var(--sub)}
+.native-fields input{width:100%;min-height:35px;border:1px solid var(--line-strong);border-radius:7px;background:var(--surface);color:var(--ink);padding:5px 9px;font-variant-numeric:tabular-nums}
+.native-presets{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.destination-path{font-size:12px;line-height:1.6;color:var(--sub);overflow-wrap:anywhere;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:10px;margin:12px 0}
+.native-note{font-size:12px;line-height:1.6;color:var(--sub);margin:8px 0}
+.native-actions{display:flex;gap:8px;justify-content:flex-start;margin-top:14px}
+.readout.increase strong{color:var(--danger)}
+#nativeOpenOriginal{position:absolute;bottom:10px;left:10px;z-index:4;background:var(--panel);font-size:11px}
+#stopJob{margin-top:8px}.range-ends span:first-child{max-width:65%}
+.file-pick .file-state{flex-shrink:0;max-width:115px}.queue-actions{flex-wrap:wrap}
+body.native-loading .start-btn{opacity:.6;pointer-events:none}
+@media(min-width:711px) and (max-height:740px){.file-list{max-height:108px}.shell{padding-bottom:8px}.queue.has-files .drop-target{min-height:32px}.queue-head{margin-bottom:6px}}
+@media(max-width:710px){.file-list{max-height:180px}.native-fields{gap:8px}.queue-actions .mini{padding-inline:5px}.native-note{font-size:11px}}
+#nativeVideoControls{position:absolute;bottom:0;left:0;right:0;z-index:3;direction:ltr;display:flex;align-items:center;gap:7px;height:42px;background:var(--surface);border-top:1px solid var(--line);padding:3px 7px}#nativeVideoControls .range-area{flex:1;min-width:60px;margin:0;height:31px}#nativeVideoControls .btn{font-size:10px;min-height:29px;padding:4px 7px}#nativeTime{font-size:10px;font-variant-numeric:tabular-nums;color:var(--sub)}
+html{background:var(--page)}
+.file-list{max-height:clamp(50px,calc(100dvh - 705px),158px)}
+.queue.has-files .drop-target{padding:4px 14px;min-height:34px}.queue.has-files .drop-icon{width:22px;height:22px}
+@media(min-width:711px) and (max-height:740px){.top-inner{height:54px}.shell{padding-top:10px}.page-head{margin-bottom:8px}.page-head h1{font-size:28px;line-height:1.2}.page-head p{font-size:12px;line-height:1.4}.settings{padding:12px 16px}.kind-switch{margin:8px 0}.range-area{height:26px}.range-block{padding:2px 0}.range-block+.range-block{margin-top:2px}.advanced{padding-top:8px}.settings .section-heading h2{font-size:17px}.start-btn{margin-top:8px;min-height:38px}.readouts{padding-block:8px}.file-list{max-height:50px}.queue{padding:10px 14px}}
+.shell{padding-bottom:2px}@media(min-width:711px) and (max-height:740px){.shell{padding-bottom:0}}
+.native-presets .btn[aria-pressed=true]{background:var(--chip);border-color:var(--a);color:var(--on-chip)}
