@@ -20,7 +20,7 @@ def launch():
             assert window.export_settings().video_max_mb == 0
             assert window.export_settings().image_max_mb == 0
             assert "ماهر بكران" in medialite.ATTRIBUTION
-            assert "+971543386217" in window.whatsapp_button.text()
+            assert "+971543386217" in window.whatsapp_button.accessibleName()
             window.image_settings.quality_slider.setValue(60)
             window.image_settings.max_size.setValue(0.25)
             window.video_settings.quality.setValue(75)
@@ -44,6 +44,10 @@ def launch():
                 assert len(window.paths) == 5, "A custom destination ancestor must not hide source files"
                 window.auto_output.setChecked(True)
                 assert window.output_dir == folder
+                from diagnostics import run_preview_smoke
+                run_preview_smoke(window, app, folder)
+            window.close()
+            app.processEvents()
             return status
         medialite.main()
         return 0
@@ -55,11 +59,11 @@ def launch():
             (folder / "report.json").write_text(json.dumps({"ok": False, "error": error}, indent=2), encoding="utf-8")
         else:
             import tempfile
-            report = Path(tempfile.gettempdir()) / "MediaLite-startup-error.txt"
+            report = Path(tempfile.gettempdir()) / "MediaPress-startup-error.txt"
             report.write_text(error, encoding="utf-8")
             if os.name == "nt":
                 import ctypes
-                ctypes.windll.user32.MessageBoxW(None, f"تعذّر تشغيل التطبيق.\nفك ضغط المجلد بالكامل، بما فيه _internal.\n\nتفاصيل الخطأ:\n{report}", "MediaLite", 0x10)
+                ctypes.windll.user32.MessageBoxW(None, f"تعذّر تشغيل التطبيق.\nفك ضغط المجلد بالكامل، بما فيه _internal.\n\nتفاصيل الخطأ:\n{report}", "MediaPress", 0x10)
         return 1
 
 

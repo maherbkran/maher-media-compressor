@@ -118,6 +118,8 @@ class ControlsTests(unittest.TestCase):
             self.window.add_paths([first])
             self.assertEqual(len(self.window.paths), 1)
             self.assertEqual(self.window.output_dir, root.resolve())
+            self.window.preview.clear()
+            self.window.preview.pool.waitForDone()
 
     def test_mixed_folders_save_next_to_each_original_without_readding_outputs(self):
         with tempfile.TemporaryDirectory(prefix="medialite-inplace-") as directory:

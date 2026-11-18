@@ -3,3 +3,5 @@ Pillow==13.0.0
 pyinstaller==6.22.3
 pillow-heif==1.8.1
 
+
+PySide6-Addons==6.12.0

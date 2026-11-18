@@ -1,4 +1,4 @@
-MediaLite source / build instructions
+MediaPress source / build instructions
 ====================================
 Windows x64, Python 3.14.3. The ready-made app needs no Python and no network.
 This source code uses no networking. Downloads below are for building only.
@@ -19,7 +19,7 @@ This source code uses no networking. Downloads below are for building only.
    Preserve upstream license files and notices in licenses/.
 
 3. Run the integration tests (actual media encoders; takes a few seconds):
-   .venv\Scripts\python.exe -m unittest test_engine test_ui test_large -v
+   .venv\Scripts\python.exe -m unittest test_engine test_ui test_large test_experience test_games -v
 
 4. Run from source:
    .venv\Scripts\python.exe launcher.py
@@ -27,8 +27,8 @@ This source code uses no networking. Downloads below are for building only.
 
 5. Build the portable distribution:
    .venv\Scripts\python.exe make_icon.py
-   .venv\Scripts\python.exe -m PyInstaller MediaLite.spec --noconfirm
-   Distribute the entire dist/MediaLite directory, not only the EXE.
+   .venv\Scripts\python.exe -m PyInstaller MediaPress.spec --noconfirm
+   Distribute the entire dist/MediaPress directory, not only the EXE.
    Add the Arabic readme, source files, and third-party notices alongside it.
 
 Architecture:
@@ -46,10 +46,10 @@ Architecture:
   A zero byte-size setting means unlimited. Transparent PNG meets its cap by resizing.
 - The UI follows each input's parent directory by default. BatchWorker output=None
   routes each result beside its own source; a Path is an explicit shared destination.
-- MediaLite.spec isolates DLL discovery from unrelated PATH entries during builds.
+- MediaPress.spec isolates DLL discovery from unrelated PATH entries during builds.
 
 Portable-build smoke test (does not open a desktop window):
-   dist\MediaLite\MediaLite.exe --self-test C:\path\to\empty-test-folder
+   dist\MediaPress\MediaPress.exe --self-test C:\path\to\empty-test-folder
 Creates synthetic media and report.json, then exits with status 0 on success.
 
 Upstream documentation:
@@ -59,8 +59,17 @@ https://github.com/libjpeg-turbo/libjpeg-turbo
 https://doc.qt.io/qtforpython-6/
 
 
-MediaLite 1.3.0: defaults are unlimited output size (0); export always writes JPEG/MP4.
+MediaPress 2.0.0: defaults are unlimited output size (0); export always writes JPEG/MP4.
 branding.py owns app attribution and the user-authorized WhatsApp contact.
 pillow-heif 1.8.1 supplies HEIC/HEIF support; FFmpeg decodes additional still formats.
 Input video size and probe/encode time are not artificially capped. Resource limits still apply.
 Legacy lossless engine functions remain for compatibility; the application UI always exports JPEG/MP4.
+
+- visuals.py: cached bounded glass chrome, native button motion, Phosphor icons.
+- media_preview.py: background thumbnails and Qt Multimedia local playback.
+- PySide6-Addons at the exact Essentials version is required for multimedia.
+- assets/ contains the approved mark and licensed official icons; retain it.
+- The original reference photograph is not part of the source or release.
+
+- dialogs.py: themed add-choice, help, settings and error/confirmation surfaces.
+- games.py: modeless Snake and ten-level memory; progress observes main task only.

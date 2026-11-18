@@ -1,0 +1,6 @@
+Qt Multimedia FFmpeg backend, shipped by The Qt Company with PySide6 6.12.0.
+FFmpeg is licensed under LGPL 2.1 or later for this Qt build; optional features may have additional terms.
+https://doc.qt.io/qt-6/qtmultimedia-attribution-ffmpeg.html
+https://code.qt.io/cgit/qt/qtmultimedia.git/tree/src/3rdparty/ffmpeg
+https://www.ffmpeg.org/legal.html
+The separate Gyan ffmpeg.exe / ffprobe.exe tools use GPLv3; see ffmpeg/ licenses.

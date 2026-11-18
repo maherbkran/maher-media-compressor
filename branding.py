@@ -1,5 +1,5 @@
-APP_NAME = "ماهر لضغط الصور والفيديوهات"
-VERSION = "1.3.0"
+APP_NAME = "MediaPress"
+VERSION = "2.0.0"
 DEVELOPER = "ماهر بكران"
 WHATSAPP_NUMBER = "+971543386217"
 WHATSAPP_URL = "https://wa.me/971543386217"

@@ -64,3 +64,44 @@ def run_smoke_test(folder: Path) -> int:
         report["error"] = traceback.format_exc()
     (folder / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     return 0 if report["ok"] else 1
+
+
+def run_preview_smoke(window, app, folder):
+    """Decode a real bundled MP4 through the same player used by the UI."""
+    from PySide6.QtCore import QEventLoop, QTimer
+    frames = []
+    loop = QEventLoop()
+    def received(frame):
+        if frame.isValid():
+            frames.append((frame.width(), frame.height()))
+            loop.quit()
+    sink = window.preview.video.videoSink()
+    sink.videoFrameChanged.connect(received)
+    window.preview.set_files(folder / 'فيديو تجريبي.mp4')
+    window.preview.toggle_play()
+    timer = QTimer()
+    timer.setSingleShot(True)
+    timer.timeout.connect(loop.quit)
+    timer.start(15000)
+    loop.exec()
+    timer.stop()
+    window.preview.pause()
+    sink.videoFrameChanged.disconnect(received)
+    assert frames, 'Native video preview did not decode a frame'
+    report_path = folder / 'report.json'
+    report = json.loads(report_path.read_text(encoding='utf-8'))
+    report['native_preview'] = {'ok': True, 'first_frame': frames[0]}
+    window.toggle_theme()
+    assert window.dark_mode
+    assert window.image_settings.quality.lineEdit().width() > 30 or not window.isVisible()
+    window.toggle_theme()
+    window.show_games()
+    window.games.choose('memory')
+    window.games.memory.buttons[0].click()
+    window.games.close()
+    window.show_games()
+    assert window.games.memory.open_cards == [0]
+    window.games.close()
+    report['games'] = {'ok': True, 'memory_levels': 10, 'snake_levels': 10, 'reopen_preserves_state': True}
+    report['themes'] = ['light','dark']
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')

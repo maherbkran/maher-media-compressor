@@ -1,0 +1,44 @@
+{
+  "viewport": [
+    1240,
+    720
+  ],
+  "glass_cache_build_ms": [
+    4.7382001066580415,
+    4.506399971432984
+  ],
+  "glass_combined_paint_ms_median": 1.9394500413909554,
+  "glass_combined_paint_ms_max": 2.967100008390844,
+  "offscreen_full_grab_ms_median": 10.552350024227053,
+  "offscreen_full_grab_ms_p95": 13.795299921184778,
+  "note": "Offscreen draw timing on this machine; not a display FPS or cross-device benchmark.",
+  "results": [
+    {
+      "source": "C:\\Users\\office\\Documents\\Codex\\2026-10-26\\x20\\work\\qa\\v2\\media\\صورة تجريبية.jpg",
+      "status": "compressed",
+      "before": 5430,
+      "after": 2328,
+      "output": "C:\\Users\\office\\Documents\\Codex\\2026-10-26\\x20\\work\\qa\\v2\\media\\صورة تجريبية_compressed_5.jpg",
+      "message": "تم التصدير بإعداداتك بدون حد حجم.",
+      "seconds": 0.02029840007890016
+    },
+    {
+      "source": "C:\\Users\\office\\Documents\\Codex\\2026-10-26\\x20\\work\\qa\\v2\\media\\فيديو تجريبي.mp4",
+      "status": "compressed",
+      "before": 406557,
+      "after": 87196,
+      "output": "C:\\Users\\office\\Documents\\Codex\\2026-10-26\\x20\\work\\qa\\v2\\media\\فيديو تجريبي_compressed_5.mp4",
+      "message": "تم التصدير بإعداداتك بدون حد حجم. يتضمن مسار الصورة والصوت الأساسيين.",
+      "seconds": 0.3977236000355333
+    },
+    {
+      "source": "C:\\Users\\office\\Documents\\Codex\\2026-10-26\\x20\\work\\qa\\v2\\media\\هوية ماهر.png",
+      "status": "compressed",
+      "before": 834545,
+      "after": 80544,
+      "output": "C:\\Users\\office\\Documents\\Codex\\2026-10-26\\x20\\work\\qa\\v2\\media\\هوية ماهر_compressed_5.jpg",
+      "message": "تم التصدير بإعداداتك بدون حد حجم.",
+      "seconds": 0.06991289998404682
+    }
+  ]
+}
